@@ -17,6 +17,8 @@ type PostProps = {
 	content: string;
 };
 
+// TODO: Make things into components in the components folder and then import them
+
 export default function PostPage({ slug, metadata, content }: PostProps) {
 	return (
 		<div className="max-w-2xl mx-auto">
@@ -26,7 +28,7 @@ export default function PostPage({ slug, metadata, content }: PostProps) {
 			</Link>
 			<div
 				dangerouslySetInnerHTML={{ __html: content }}
-				className="prose"
+				className="prose prose-slate dark:prose-invert"
 			></div>
 		</div>
 	);
