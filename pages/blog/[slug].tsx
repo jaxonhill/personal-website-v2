@@ -1,5 +1,7 @@
 import getPostSlugs from "@/lib/getPostSlugs";
 import Link from "next/link";
+import getPostContentFromSlug from "@/lib/getPostContentFromSlug";
+import markdownToHtml from "@/lib/markdownToHtml";
 
 type Slug = {
 	slug: string;
@@ -9,23 +11,34 @@ type SlugFormat = {
 	params: Slug;
 };
 
-export default function PostPage({ slug }: { slug: string }) {
+type PostProps = {
+	slug: string;
+	metadata: any;
+	content: string;
+};
+
+export default function PostPage({ slug, metadata, content }: PostProps) {
 	return (
 		<div>
 			<h1>{slug}</h1>
 			<Link href={"/blog"} className="text-blue-400 underline">
 				Back to blog
 			</Link>
+			<div dangerouslySetInnerHTML={{ __html: content }}></div>
 		</div>
 	);
 }
 
 export async function getStaticProps({ params }: { params: Slug }) {
-	// Get the designated slug for the page from params
-	const slug = params.slug;
+	const slug = params.slug; // Get the designated slug for the page from params
+	const { metadata, content } = getPostContentFromSlug(slug); // Get the content and metadata
+	const contentHtml = await markdownToHtml(content);
+
 	return {
 		props: {
 			slug: slug,
+			metadata: metadata,
+			content: contentHtml,
 		},
 	};
 }
