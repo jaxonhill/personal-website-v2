@@ -19,12 +19,15 @@ type PostProps = {
 
 export default function PostPage({ slug, metadata, content }: PostProps) {
 	return (
-		<div>
+		<div className="max-w-2xl mx-auto">
 			<h1>{slug}</h1>
 			<Link href={"/blog"} className="text-blue-400 underline">
 				Back to blog
 			</Link>
-			<div dangerouslySetInnerHTML={{ __html: content }}></div>
+			<div
+				dangerouslySetInnerHTML={{ __html: content }}
+				className="prose"
+			></div>
 		</div>
 	);
 }
