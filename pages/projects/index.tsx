@@ -21,6 +21,7 @@ export default function ProjectPage() {
 	const technologies = getTechnologies(projects);
 	const filteredProjects: Project[] = getFilteredProjects(
 		techFiltersSelected,
+		searchText,
 		projects
 	);
 
@@ -35,8 +36,6 @@ export default function ProjectPage() {
 			setTechFiltersSelected([...techFiltersSelected, tech]);
 		}
 	}
-
-	function handleSearchFilter(tech: Technology) {}
 
 	return (
 		<div>
@@ -70,16 +69,33 @@ export default function ProjectPage() {
 
 function getFilteredProjects(
 	technologyFilters: Technology[],
+	searchText: string,
 	projects: Project[]
 ): Project[] {
+	// Define newProjects as a list of all projects at first
 	let newProjects = projects;
-	// Loop through filtered technologies list
+	searchText = searchText.toLowerCase(); // Make search text all lower case
+
+	// Loop through filtered technologies list (Check tech filters)
 	for (let i = 0; i < technologyFilters.length; i++) {
-		// Keep projects that contain that technology, otherwise filter them out
+		// Keep projects that contain that technology (by filter or search text)
 		newProjects = newProjects.filter((proj) => {
+			console.log(proj.technologies.join(" ").toLowerCase());
 			return proj.technologies.includes(technologyFilters[i]);
 		});
 	}
+
+	// Filter out projects that do not contain the search text
+	if (searchText) {
+		newProjects = newProjects.filter((proj) => {
+			return (
+				proj.name.toLowerCase().includes(searchText) ||
+				proj.description.toLowerCase().includes(searchText) ||
+				proj.technologies.join(" ").toLowerCase().includes(searchText)
+			);
+		});
+	}
+
 	return newProjects;
 }
 
