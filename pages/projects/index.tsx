@@ -4,8 +4,12 @@ import { Technology } from "@/lib/projects";
 import { useState } from "react";
 import Link from "next/link";
 
+import TechnologyFilterButton from "@/components/TechnologyFilterButton";
+
 export default function ProjectPage() {
-	const [displayedProjects, setDisplayedProjects] = useState(projects);
+	const [techFiltersSelected, setTechFiltersSelected] = useState<
+		Technology[]
+	>([]);
 	const technologies = getTechnologies(projects);
 
 	// TODO: Create separate components for:
@@ -13,34 +17,37 @@ export default function ProjectPage() {
 	//          - Button for technology
 	//          - Search bar to filter as well
 
-	function handleFilter(tech: Technology) {
-		// Filter out projects that do not have the technologies desired for filter
-		let newProjects: Project[] = displayedProjects.filter(
-			(proj: Project) => {
-				return proj.technologies.includes(tech);
-			}
-		);
-		setDisplayedProjects(newProjects);
+	function handleTechnologyFilter(tech: Technology) {
+		// Check if the filter is already in the techFiltersSelected
+		if (techFiltersSelected.includes(tech)) {
+			let newFilters = techFiltersSelected.filter((currFilter) => {
+				return tech != currFilter;
+			});
+			setTechFiltersSelected(newFilters);
+		} else {
+			setTechFiltersSelected([...techFiltersSelected, tech]);
+		}
 	}
+
+	const filteredProjects: Project[] =
+		getFilteredProjects(techFiltersSelected);
 
 	return (
 		<div>
 			<div className="flex gap-2">
 				{technologies.map((technology: Technology) => {
 					return (
-						<button
-							className="rounded-2xl bg-slate-200 px-2 py-1"
-							onClick={() => handleFilter(technology)}
-						>
-							{technology}
-						</button>
+						<TechnologyFilterButton
+							technology={technology}
+							handleTechnologyFilter={handleTechnologyFilter}
+						/>
 					);
 				})}
 			</div>
 			<br />
 			<br />
 			<div>
-				{displayedProjects.map((proj: Project): JSX.Element => {
+				{filteredProjects.map((proj: Project) => {
 					return <h1>{proj.name}</h1>;
 				})}
 			</div>
@@ -49,6 +56,18 @@ export default function ProjectPage() {
 			</Link>
 		</div>
 	);
+}
+
+function getFilteredProjects(technologyFilters: Technology[]): Project[] {
+	let newProjects = projects;
+	// Loop through filtered technologies list
+	for (let i = 0; i < technologyFilters.length; i++) {
+		// Keep projects that contain that technology, otherwise filter them out
+		newProjects = newProjects.filter((proj) => {
+			return proj.technologies.includes(technologyFilters[i]);
+		});
+	}
+	return newProjects;
 }
 
 function getTechnologies(projects: Project[]): Technology[] {
