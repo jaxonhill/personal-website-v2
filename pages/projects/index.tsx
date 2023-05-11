@@ -5,16 +5,17 @@ import { useState } from "react";
 import Link from "next/link";
 
 import TechnologyFilterButton from "@/components/TechnologyFilterButton";
+import SearchFilter from "@/components/SearchFilter";
 
 export default function ProjectPage() {
 	const [techFiltersSelected, setTechFiltersSelected] = useState<
 		Technology[]
 	>([]);
+
 	const technologies = getTechnologies(projects);
 
 	// TODO: Create separate components for:
 	//          - Project card
-	//          - Button for technology
 	//          - Search bar to filter as well
 
 	function handleTechnologyFilter(tech: Technology) {
@@ -29,11 +30,14 @@ export default function ProjectPage() {
 		}
 	}
 
+	function handleSearchFilter(tech: Technology) {}
+
 	const filteredProjects: Project[] =
 		getFilteredProjects(techFiltersSelected);
 
 	return (
 		<div>
+			<SearchFilter />
 			<div className="flex gap-2">
 				{technologies.map((technology: Technology) => {
 					return (
