@@ -12,7 +12,6 @@ export default function ProjectPage() {
 	//          - Project card
 	//          - Button for technology
 	//          - Search bar to filter as well
-	//          - Back home link
 
 	function handleFilter(tech: Technology) {
 		// Filter out projects that do not have the technologies desired for filter
