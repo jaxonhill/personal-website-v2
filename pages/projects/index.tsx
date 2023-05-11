@@ -2,10 +2,17 @@ import { projects } from "@/lib/projects";
 import { Project } from "@/lib/projects";
 import { Technology } from "@/lib/projects";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function ProjectPage() {
 	const [displayedProjects, setDisplayedProjects] = useState(projects);
 	const technologies = getTechnologies(projects);
+
+	// TODO: Create separate components for:
+	//          - Project card
+	//          - Button for technology
+	//          - Search bar to filter as well
+	//          - Back home link
 
 	function handleFilter(tech: Technology) {
 		// Filter out projects that do not have the technologies desired for filter
@@ -33,9 +40,14 @@ export default function ProjectPage() {
 			</div>
 			<br />
 			<br />
-			{displayedProjects.map((proj: Project): JSX.Element => {
-				return <h1>{proj.name}</h1>;
-			})}
+			<div>
+				{displayedProjects.map((proj: Project): JSX.Element => {
+					return <h1>{proj.name}</h1>;
+				})}
+			</div>
+			<Link href={"/"} className="underline text-blue-400">
+				Back home
+			</Link>
 		</div>
 	);
 }
