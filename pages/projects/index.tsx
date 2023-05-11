@@ -1,11 +1,16 @@
-import { projects } from "@/lib/projects";
-import { Project } from "@/lib/projects";
-import { Technology } from "@/lib/projects";
+// React/Next imports
 import { useState } from "react";
 import Link from "next/link";
 
+// Import enums, types, and list of projects from lib file
+import { projects } from "@/lib/projects";
+import { Project } from "@/lib/projects";
+import { Technology } from "@/lib/projects";
+
+// Import components from components file
 import TechnologyFilterButton from "@/components/TechnologyFilterButton";
 import SearchFilter from "@/components/SearchFilter";
+import ProjectCard from "@/components/ProjectCard";
 
 export default function ProjectPage() {
 	const [techFiltersSelected, setTechFiltersSelected] = useState<
@@ -14,10 +19,10 @@ export default function ProjectPage() {
 	const [searchText, setSearchText] = useState<string>("");
 
 	const technologies = getTechnologies(projects);
-
-	// TODO: Create separate components for:
-	//          - Project card
-	//          - Search bar to filter as well
+	const filteredProjects: Project[] = getFilteredProjects(
+		techFiltersSelected,
+		projects
+	);
 
 	function handleTechnologyFilter(tech: Technology) {
 		// Check if the filter is already in the techFiltersSelected
@@ -32,11 +37,6 @@ export default function ProjectPage() {
 	}
 
 	function handleSearchFilter(tech: Technology) {}
-
-	const filteredProjects: Project[] =
-		getFilteredProjects(techFiltersSelected);
-
-	console.log(searchText);
 
 	return (
 		<div>
@@ -56,9 +56,9 @@ export default function ProjectPage() {
 			</div>
 			<br />
 			<br />
-			<div>
+			<div className="flex flex-col gap-4">
 				{filteredProjects.map((proj: Project) => {
-					return <h1>{proj.name}</h1>;
+					return <ProjectCard project={proj} />;
 				})}
 			</div>
 			<Link href={"/"} className="underline text-blue-400">
@@ -68,7 +68,10 @@ export default function ProjectPage() {
 	);
 }
 
-function getFilteredProjects(technologyFilters: Technology[]): Project[] {
+function getFilteredProjects(
+	technologyFilters: Technology[],
+	projects: Project[]
+): Project[] {
 	let newProjects = projects;
 	// Loop through filtered technologies list
 	for (let i = 0; i < technologyFilters.length; i++) {
