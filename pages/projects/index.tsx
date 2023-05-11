@@ -11,6 +11,7 @@ export default function ProjectPage() {
 	const [techFiltersSelected, setTechFiltersSelected] = useState<
 		Technology[]
 	>([]);
+	const [searchText, setSearchText] = useState<string>("");
 
 	const technologies = getTechnologies(projects);
 
@@ -35,9 +36,14 @@ export default function ProjectPage() {
 	const filteredProjects: Project[] =
 		getFilteredProjects(techFiltersSelected);
 
+	console.log(searchText);
+
 	return (
 		<div>
-			<SearchFilter />
+			<SearchFilter
+				searchText={searchText}
+				setSearchText={setSearchText}
+			/>
 			<div className="flex gap-2">
 				{technologies.map((technology: Technology) => {
 					return (

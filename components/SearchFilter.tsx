@@ -1,15 +1,18 @@
-import { useState } from "react";
+export type SearchFilterProps = {
+	searchText: string;
+	setSearchText: Function;
+};
 
-export default function SearchFilter() {
-	const [searchText, setSearchText] = useState<string>("");
-
-	console.log(searchText);
-
+export default function SearchFilter({
+	searchText,
+	setSearchText,
+}: SearchFilterProps): JSX.Element {
 	return (
 		<input
 			type="text"
 			value={searchText}
 			onChange={(e) => setSearchText(e.target.value)}
+			className="rounded-full border border-slate-400 py-2 px-4"
 		/>
 	);
 }
