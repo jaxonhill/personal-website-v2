@@ -39,30 +39,35 @@ export default function ProjectPage() {
 
 	return (
 		<div>
-			<SearchFilter
-				searchText={searchText}
-				setSearchText={setSearchText}
-			/>
-			<div className="flex gap-2">
-				{technologies.map((technology: Technology) => {
-					return (
-						<TechnologyFilterButton
-							technology={technology}
-							handleTechnologyFilter={handleTechnologyFilter}
-						/>
-					);
-				})}
+			<div className="flex flex-col mt-16 w-full">
+				<div className="mb-6 flex flex-col gap-3">
+					<h1 className="text-3xl text-slate-800 font-semibold dark:text-slate-200">
+						Projects
+					</h1>
+					<SearchFilter
+						searchText={searchText}
+						setSearchText={setSearchText}
+					/>
+					<div className="flex gap-2 flex-wrap">
+						{technologies.map((technology: Technology) => {
+							return (
+								<TechnologyFilterButton
+									technology={technology}
+									handleTechnologyFilter={
+										handleTechnologyFilter
+									}
+								/>
+							);
+						})}
+					</div>
+				</div>
+				<div className="w-full flex flex-col gap-4"></div>
 			</div>
-			<br />
-			<br />
 			<div className="flex flex-col gap-4">
 				{filteredProjects.map((proj: Project) => {
 					return <ProjectCard project={proj} />;
 				})}
 			</div>
-			<Link href={"/"} className="underline text-blue-400">
-				Back home
-			</Link>
 		</div>
 	);
 }

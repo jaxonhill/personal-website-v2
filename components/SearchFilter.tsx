@@ -12,7 +12,8 @@ export default function SearchFilter({
 			type="text"
 			value={searchText}
 			onChange={(e) => setSearchText(e.target.value)}
-			className="rounded-full border border-slate-400 py-2 px-4"
+			className="shadow font-medium rounded-full py-2 px-4 border-none outline-none text-slate-800 placeholder:text-slate-400 focus:outline-light-main dark:bg-slate-800 dark:placeholder:text-slate-600 dark:text-slate-300"
+			placeholder="Search for a project..."
 		/>
 	);
 }
