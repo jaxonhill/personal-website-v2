@@ -9,7 +9,11 @@ export default function Document() {
 		<Html lang="en">
 			<Head />
 			<body className={`${isDarkMode && "dark"}`}>
-				<div className={isDarkMode ? "bg-slate-900" : "bg-gray-200"}>
+				<div
+					className={`${
+						isDarkMode ? "bg-slate-900" : "bg-gray-200"
+					} min-h-screen`}
+				>
 					<Main />
 					<NextScript />
 				</div>
