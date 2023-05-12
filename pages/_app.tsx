@@ -16,8 +16,8 @@ export default function App({ Component, pageProps }: AppProps) {
 			<Navbar />
 			{/* Set the whole website to dark mode if the dark mode state is true
       by applying "dark" class name on the main DOM element wrapping everything */}
-			{/* <main className={`${isDarkMode && "dark"} ${poppins.className}`}> */}
-			<main>
+			{/* <main className={`${isDarkMode && "dark"}`}> */}
+			<main className="px-4 mb-8">
 				<section className={`dark:bg-slate-900`}>
 					<Component {...pageProps} />
 				</section>

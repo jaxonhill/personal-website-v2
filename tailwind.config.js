@@ -12,11 +12,11 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors: {
+        "light-main": "#4BC9DA",
+        "dark-main": "#67E8F9",
+      }
     },
-    colors: {
-      "light-main": "#4BC9DA",
-      "dark-main": "#67E8F9",
-    }
   },
   plugins: [
     require('@tailwindcss/typography'),
