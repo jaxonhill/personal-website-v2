@@ -52,6 +52,7 @@ export default function ProjectPage() {
 						{technologies.map((technology: Technology) => {
 							return (
 								<TechnologyFilterButton
+									key={technology}
 									technology={technology}
 									handleTechnologyFilter={
 										handleTechnologyFilter
@@ -64,7 +65,7 @@ export default function ProjectPage() {
 			</div>
 			<div className="flex flex-col gap-4">
 				{filteredProjects.map((proj: Project) => {
-					return <ProjectCard project={proj} />;
+					return <ProjectCard key={proj.name} project={proj} />;
 				})}
 			</div>
 		</div>

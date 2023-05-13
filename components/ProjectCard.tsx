@@ -17,7 +17,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 			<ul className="flex flex-wrap gap-3">
 				{project.technologies.map((tech) => {
 					return (
-						<li className="font-semibold py-2 px-4 bg-slate-200 text-slate-600 rounded-full dark:bg-slate-900 dark:text-slate-500">
+						<li
+							key={tech}
+							className="font-semibold py-2 px-4 bg-slate-200 text-slate-600 rounded-full dark:bg-slate-900 dark:text-slate-500"
+						>
 							{tech}
 						</li>
 					);
