@@ -41,7 +41,7 @@ export default function ProjectPage() {
 		<div>
 			<div className="flex flex-col mt-16 w-full">
 				<div className="mb-8 flex flex-col gap-3">
-					<h1 className="text-3xl mb-1 text-slate-800 font-semibold tracking-[0.20em] dark:text-slate-700">
+					<h1 className="text-3xl mb-1 text-gray-400 font-semibold tracking-[0.20em] dark:text-slate-700">
 						PROJECTS
 					</h1>
 					<SearchFilter

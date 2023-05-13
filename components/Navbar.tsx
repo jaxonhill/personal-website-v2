@@ -1,9 +1,17 @@
 import Link from "next/link";
+import { useTheme } from "next-themes";
 
 export default function Navbar() {
+	const { theme, setTheme } = useTheme();
+
 	return (
 		<nav className="w-full flex justify-between py-6 px-4">
 			<p className="text-light-main font-semibold">jaxonhill.xyz</p>
+			<button
+				onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+			>
+				Toggle Theme
+			</button>
 			<button className="p-1">
 				<svg
 					className="stroke-slate-900 dark:stroke-slate-200"

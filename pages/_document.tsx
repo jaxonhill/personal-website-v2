@@ -4,19 +4,13 @@ import { Poppins } from "next/font/google";
 
 export default function Document() {
 	// Hold state of if we are using dark mode or not, false by default
-	const [isDarkMode, setIsDarkMode] = useState(true);
+	// const [isDarkMode, setIsDarkMode] = useState(true);
 	return (
 		<Html lang="en">
 			<Head />
-			<body className={`${isDarkMode && "dark"}`}>
-				<div
-					className={`${
-						isDarkMode ? "bg-slate-900" : "bg-gray-200"
-					} min-h-screen`}
-				>
-					<Main />
-					<NextScript />
-				</div>
+			<body className="bg-gray-200 min-h-screen dark:bg-slate-900">
+				<Main />
+				<NextScript />
 			</body>
 		</Html>
 	);

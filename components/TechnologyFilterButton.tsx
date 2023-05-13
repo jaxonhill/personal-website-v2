@@ -11,7 +11,7 @@ export default function TechnologyFilterButton({
 }: FilterButtonProps): JSX.Element {
 	return (
 		<button
-			className="shadow rounded-full bg-white text-slate-600 px-4 py-2 font-medium dark:bg-slate-800 dark:text-slate-600"
+			className="shadow rounded-full bg-white text-slate-400 px-4 py-2 font-medium dark:bg-slate-800 dark:text-slate-600"
 			onClick={() => handleTechnologyFilter(technology)}
 		>
 			{technology}
