@@ -3,8 +3,8 @@ import Link from "next/link";
 export default function Home() {
 	return (
 		<div className="flex flex-col mt-16 w-full">
-			<h1 className="text-3xl text-slate-800 font-semibold mb-6 dark:text-slate-200">
-				Home
+			<h1 className="text-3xl text-slate-800 font-semibold mb-6 tracking-[0.20em] dark:text-slate-700">
+				HOME
 			</h1>
 			<div className="w-full flex flex-col gap-4">
 				<div className="bg-white p-6 rounded-2xl shadow dark:bg-slate-800">
@@ -29,11 +29,11 @@ export default function Home() {
 					</div>
 				</div>
 				<div className="bg-white p-6 h-40 rounded-2xl shadow flex gap-6 justify-center items-center dark:bg-slate-800">
-					<p className="text-5xl font-semibold text-slate-600 dark:text-slate-300">
+					<p className="text-5xl font-semibold text-slate-700 dark:text-slate-500">
 						PROJECTS
 					</p>
 					<svg
-						className="fill-slate-600 dark:fill-slate-300"
+						className="fill-slate-700 dark:fill-slate-500"
 						width="32"
 						height="32"
 						viewBox="0 0 32 32"
@@ -45,7 +45,7 @@ export default function Home() {
 				<div className="flex gap-4">
 					<div className="bg-white h-40 w-full rounded-2xl shadow flex gap-6 justify-center items-center dark:bg-slate-800">
 						<svg
-							className="fill-slate-600 dark:fill-slate-300"
+							className="fill-slate-700 dark:fill-slate-500"
 							width="64"
 							height="53"
 							viewBox="0 0 64 53"
@@ -56,7 +56,7 @@ export default function Home() {
 					</div>
 					<div className="bg-white h-40 w-full rounded-2xl shadow flex gap-6 justify-center items-center dark:bg-slate-800">
 						<svg
-							className="fill-slate-600 dark:fill-slate-300"
+							className="fill-slate-700 dark:fill-slate-500"
 							width="64"
 							height="64"
 							viewBox="0 0 64 64"

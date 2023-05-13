@@ -40,9 +40,9 @@ export default function ProjectPage() {
 	return (
 		<div>
 			<div className="flex flex-col mt-16 w-full">
-				<div className="mb-6 flex flex-col gap-3">
-					<h1 className="text-3xl text-slate-800 font-semibold dark:text-slate-200">
-						Projects
+				<div className="mb-8 flex flex-col gap-3">
+					<h1 className="text-3xl mb-1 text-slate-800 font-semibold tracking-[0.20em] dark:text-slate-700">
+						PROJECTS
 					</h1>
 					<SearchFilter
 						searchText={searchText}
@@ -61,7 +61,6 @@ export default function ProjectPage() {
 						})}
 					</div>
 				</div>
-				<div className="w-full flex flex-col gap-4"></div>
 			</div>
 			<div className="flex flex-col gap-4">
 				{filteredProjects.map((proj: Project) => {

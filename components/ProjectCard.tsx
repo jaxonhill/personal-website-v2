@@ -8,7 +8,7 @@ export type ProjectCardProps = {
 export default function ProjectCard({ project }: ProjectCardProps) {
 	return (
 		<div className="bg-white p-6 rounded-2xl shadow dark:bg-slate-800">
-			<h1 className="font-semibold text-slate-800 text-3xl pb-2 dark:text-slate-100">
+			<h1 className="font-semibold text-slate-800 text-3xl pb-2 dark:text-slate-200">
 				{project.name}
 			</h1>
 			<p className="font-medium text-slate-600 leading-relaxed pb-6 dark:text-slate-400">
@@ -17,7 +17,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 			<ul className="flex flex-wrap gap-3">
 				{project.technologies.map((tech) => {
 					return (
-						<li className="font-medium py-2 px-4 bg-slate-200 text-slate-600 rounded-full dark:bg-slate-900 dark:text-slate-400">
+						<li className="font-semibold py-2 px-4 bg-slate-200 text-slate-600 rounded-full dark:bg-slate-900 dark:text-slate-500">
 							{tech}
 						</li>
 					);
@@ -41,7 +41,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 								>
 									<path d="M32 0C27.7977 0 23.6365 0.848254 19.7541 2.49633C15.8717 4.14441 12.3441 6.56003 9.37258 9.60528C3.37142 15.7554 0 24.0968 0 32.7945C0 47.2896 9.184 59.5875 21.888 63.9492C23.488 64.2116 24 63.1949 24 62.3095C24 61.5552 24 59.4892 24 56.7672C15.136 58.7349 13.248 52.3728 13.248 52.3728C11.776 48.5686 9.696 47.552 9.696 47.552C6.784 45.5187 9.92 45.5843 9.92 45.5843C13.12 45.8139 14.816 48.9621 14.816 48.9621C17.6 53.9469 22.304 52.4711 24.128 51.6841C24.416 49.5524 25.248 48.1095 26.144 47.2896C19.04 46.4698 11.584 43.6494 11.584 31.1547C11.584 27.5146 12.8 24.5958 14.88 22.2674C14.56 21.4476 13.44 18.037 15.2 13.6097C15.2 13.6097 17.888 12.7243 24 16.9547C26.528 16.2333 29.28 15.8725 32 15.8725C34.72 15.8725 37.472 16.2333 40 16.9547C46.112 12.7243 48.8 13.6097 48.8 13.6097C50.56 18.037 49.44 21.4476 49.12 22.2674C51.2 24.5958 52.416 27.5146 52.416 31.1547C52.416 43.6822 44.928 46.437 37.792 47.2568C38.944 48.2734 40 50.2739 40 53.3238V62.3095C40 63.1949 40.512 64.2444 42.144 63.9492C54.848 59.5547 64 47.2896 64 32.7945C64 28.4878 63.1723 24.2234 61.5641 20.2446C59.956 16.2658 57.5989 12.6505 54.6274 9.60528C51.6559 6.56003 48.1283 4.14441 44.2459 2.49633C40.3635 0.848254 36.2023 0 32 0Z" />
 								</svg>
-								<p className="text-slate-600 dark:text-slate-600 font-semibold">
+								<p className="text-slate-600 dark:text-slate-500 font-semibold">
 									|
 								</p>
 							</Link>
