@@ -1,4 +1,5 @@
 import { Technology } from "@/lib/projects";
+import { motion } from "framer-motion";
 
 export type FilterButtonProps = {
 	technology: Technology;
@@ -12,7 +13,11 @@ export default function TechnologyFilterButton({
 	isSelected,
 }: FilterButtonProps): JSX.Element {
 	return (
-		<button
+		<motion.button
+			whileHover={{
+				scale: 1.05,
+			}}
+			whileTap={{ scale: 0.85 }}
 			className={`${
 				isSelected
 					? "text-light-main bg-gray-100 hover:bg-white dark:bg-slate-700 dark:hover:bg-slate-800"
@@ -21,6 +26,6 @@ export default function TechnologyFilterButton({
 			onClick={() => handleTechnologyFilter(technology)}
 		>
 			{technology}
-		</button>
+		</motion.button>
 	);
 }
