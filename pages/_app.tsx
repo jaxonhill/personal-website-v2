@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
 		<ThemeProvider attribute="class">
 			<div className={`${poppins.className}`}>
 				<Navbar />
-				<main className="px-4 pb-8">
+				<main className="px-4 pb-8 md:px-16 lg:px-24 xl:px-40 2xl:px-80">
 					<Component {...pageProps} />
 				</main>
 			</div>

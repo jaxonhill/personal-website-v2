@@ -5,7 +5,7 @@ export default function Navbar() {
 	const { theme, setTheme } = useTheme();
 
 	return (
-		<nav className="w-full flex justify-between items-center py-6 px-4">
+		<nav className="w-full flex justify-between items-center py-6 px-4 md:px-16 lg:px-24 xl:px-40 2xl:px-80">
 			<p className="text-light-main font-semibold">jaxonhill.xyz</p>
 			<div className="flex gap-4 items-center">
 				<Link className="text-slate-500 font-semibold" href={"/"}>
