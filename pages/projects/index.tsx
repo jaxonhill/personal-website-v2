@@ -1,6 +1,6 @@
 // React/Next/Framer imports
 import { useState } from "react";
-import Link from "next/link";
+import Head from "next/head";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 
@@ -40,56 +40,64 @@ export default function ProjectPage() {
 	}
 
 	return (
-		<motion.div
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			transition={{ duration: 1 }}
-		>
-			<div className="flex flex-col mt-16 w-full">
-				<div className="mb-8 flex flex-col gap-3">
-					<h1 className="text-3xl mb-1 text-gray-400 font-semibold tracking-[0.20em] dark:text-slate-700">
-						PROJECTS
-					</h1>
-					<SearchFilter
-						searchText={searchText}
-						setSearchText={setSearchText}
-					/>
-					<div className="flex gap-2 flex-wrap">
-						{technologies.map((technology: Technology) => {
-							return (
-								<TechnologyFilterButton
-									key={technology}
-									technology={technology}
-									handleTechnologyFilter={
-										handleTechnologyFilter
-									}
-									isSelected={techFiltersSelected.includes(
-										technology
-									)}
-								/>
-							);
-						})}
+		<>
+			<Head>
+				<title>Projects - Jaxon Hill</title>
+			</Head>
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{ duration: 1 }}
+			>
+				<div className="flex flex-col mt-16 w-full">
+					<div className="mb-8 flex flex-col gap-3">
+						<h1 className="text-3xl mb-1 text-gray-400 font-semibold tracking-[0.20em] dark:text-slate-700">
+							PROJECTS
+						</h1>
+						<SearchFilter
+							searchText={searchText}
+							setSearchText={setSearchText}
+						/>
+						<div className="flex gap-2 flex-wrap">
+							{technologies.map((technology: Technology) => {
+								return (
+									<TechnologyFilterButton
+										key={technology}
+										technology={technology}
+										handleTechnologyFilter={
+											handleTechnologyFilter
+										}
+										isSelected={techFiltersSelected.includes(
+											technology
+										)}
+									/>
+								);
+							})}
+						</div>
 					</div>
 				</div>
-			</div>
-			{filteredProjects.length === 0 ? (
-				<div className="flex justify-center items-center">
-					<p className="text-5xl text-gray-400 font-semibold pt-6 dark:text-slate-700">
-						No projects match the criteria!
-					</p>
-				</div>
-			) : (
-				<div className="flex flex-col gap-4 xl:grid xl:grid-cols-2">
-					<AnimatePresence>
-						{filteredProjects.map((proj: Project) => {
-							return (
-								<ProjectCard key={proj.name} project={proj} />
-							);
-						})}
-					</AnimatePresence>
-				</div>
-			)}
-		</motion.div>
+				{filteredProjects.length === 0 ? (
+					<div className="flex justify-center items-center">
+						<p className="text-5xl text-gray-400 font-semibold pt-6 dark:text-slate-700">
+							No projects match the criteria!
+						</p>
+					</div>
+				) : (
+					<div className="flex flex-col gap-4 xl:grid xl:grid-cols-2">
+						<AnimatePresence>
+							{filteredProjects.map((proj: Project) => {
+								return (
+									<ProjectCard
+										key={proj.name}
+										project={proj}
+									/>
+								);
+							})}
+						</AnimatePresence>
+					</div>
+				)}
+			</motion.div>
+		</>
 	);
 }
 
