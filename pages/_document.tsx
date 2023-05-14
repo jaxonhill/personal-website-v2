@@ -7,7 +7,9 @@ export default function Document() {
 	// const [isDarkMode, setIsDarkMode] = useState(true);
 	return (
 		<Html lang="en">
-			<Head />
+			<Head>
+				<link rel="shortcut icon" href="/static/jh_logo.svg" />
+			</Head>
 			<body className="bg-gray-200 min-h-screen dark:bg-slate-900">
 				<Main />
 				<NextScript />

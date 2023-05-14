@@ -1,6 +1,8 @@
-// React/Next imports
+// React/Next/Framer imports
 import { useState } from "react";
 import Link from "next/link";
+import { AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 // Import enums, types, and list of projects from lib file
 import { projects } from "@/lib/projects";
@@ -11,7 +13,6 @@ import { Technology } from "@/lib/projects";
 import TechnologyFilterButton from "@/components/TechnologyFilterButton";
 import SearchFilter from "@/components/SearchFilter";
 import ProjectCard from "@/components/ProjectCard";
-import { AnimatePresence } from "framer-motion";
 
 export default function ProjectPage() {
 	const [techFiltersSelected, setTechFiltersSelected] = useState<
@@ -39,7 +40,11 @@ export default function ProjectPage() {
 	}
 
 	return (
-		<div>
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			transition={{ duration: 1 }}
+		>
 			<div className="flex flex-col mt-16 w-full">
 				<div className="mb-8 flex flex-col gap-3">
 					<h1 className="text-3xl mb-1 text-gray-400 font-semibold tracking-[0.20em] dark:text-slate-700">
@@ -84,7 +89,7 @@ export default function ProjectPage() {
 					</AnimatePresence>
 				</div>
 			)}
-		</div>
+		</motion.div>
 	);
 }
 

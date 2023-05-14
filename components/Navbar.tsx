@@ -6,7 +6,12 @@ export default function Navbar() {
 	const { theme, setTheme } = useTheme();
 
 	return (
-		<nav className="w-full flex justify-between items-center py-6 px-4 md:px-16 lg:px-24 xl:px-40 2xl:px-80">
+		<motion.nav
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			transition={{ duration: 1 }}
+			className="w-full flex justify-between items-center py-6 px-4 md:px-16 lg:px-24 xl:px-40 2xl:px-80"
+		>
 			<motion.div
 				whileHover={{
 					scale: 1.05,
@@ -64,6 +69,6 @@ export default function Navbar() {
 					</svg>
 				</motion.button>
 			</div>
-		</nav>
+		</motion.nav>
 	);
 }

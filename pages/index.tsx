@@ -3,7 +3,12 @@ import { motion } from "framer-motion";
 
 export default function Home() {
 	return (
-		<div className="flex flex-col mt-16 w-full">
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			transition={{ duration: 1 }}
+			className="flex flex-col mt-16 w-full"
+		>
 			<h1 className="text-3xl text-gray-400 font-semibold mb-6 tracking-[0.20em] dark:text-slate-700">
 				HOME
 			</h1>
@@ -99,6 +104,6 @@ export default function Home() {
 					</Link>
 				</motion.div>
 			</div>
-		</div>
+		</motion.div>
 	);
 }
