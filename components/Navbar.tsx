@@ -6,13 +6,18 @@ export default function Navbar() {
 
 	return (
 		<nav className="w-full flex justify-between items-center py-6 px-4 md:px-16 lg:px-24 xl:px-40 2xl:px-80">
-			<p className="text-light-main font-semibold">jaxonhill.xyz</p>
+			<Link href={"/"} className="text-light-main font-semibold">
+				jaxonhill.xyz
+			</Link>
 			<div className="flex gap-4 items-center">
-				<Link className="text-slate-500 font-semibold" href={"/"}>
+				<Link
+					className="text-slate-500 font-semibold hover:text-slate-600 dark:hover:text-slate-400"
+					href={"/"}
+				>
 					Home
 				</Link>
 				<Link
-					className="text-slate-500 font-semibold"
+					className="text-slate-500 font-semibold hover:text-slate-600 dark:hover:text-slate-400"
 					href={"/projects"}
 				>
 					Projects
@@ -23,7 +28,7 @@ export default function Navbar() {
 					}
 				>
 					<svg
-						className="fill-slate-500"
+						className="fill-slate-500 hover:fill-slate-600 dark:hover:fill-slate-400"
 						width="18"
 						height="18"
 						viewBox="0 0 15 18"
