@@ -7,25 +7,27 @@ export type ProjectCardProps = {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
 	return (
-		<div className="bg-white p-6 rounded-2xl shadow dark:bg-slate-800">
-			<h1 className="font-semibold text-slate-800 text-3xl pb-2 dark:text-slate-200">
-				{project.name}
-			</h1>
-			<p className="font-medium text-slate-700 leading-relaxed pb-6 dark:text-slate-400">
-				{project.description}
-			</p>
-			<ul className="flex flex-wrap gap-3">
-				{project.technologies.map((tech) => {
-					return (
-						<li
-							key={tech}
-							className="font-semibold py-2 px-4 bg-slate-200 text-slate-600 rounded-full dark:bg-slate-900 dark:text-slate-500"
-						>
-							{tech}
-						</li>
-					);
-				})}
-			</ul>
+		<div className="bg-white p-6 flex flex-col rounded-2xl shadow h-full justify-between dark:bg-slate-800">
+			<div>
+				<h1 className="font-semibold text-slate-800 text-3xl pb-2 dark:text-slate-200">
+					{project.name}
+				</h1>
+				<p className="font-medium text-slate-700 leading-relaxed pb-6 dark:text-slate-400">
+					{project.description}
+				</p>
+				<ul className="flex flex-wrap gap-3">
+					{project.technologies.map((tech) => {
+						return (
+							<li
+								key={tech}
+								className="font-semibold py-2 px-4 bg-slate-200 text-slate-600 rounded-full dark:bg-slate-900 dark:text-slate-500"
+							>
+								{tech}
+							</li>
+						);
+					})}
+				</ul>
+			</div>
 			{/* Only render this part if there is a github or site link */}
 			{(project.githubLink || project.liveSiteLink) && (
 				<div className="pt-8 flex w-full items-center justify-end">

@@ -63,11 +63,19 @@ export default function ProjectPage() {
 					</div>
 				</div>
 			</div>
-			<div className="flex flex-col gap-4">
-				{filteredProjects.map((proj: Project) => {
-					return <ProjectCard key={proj.name} project={proj} />;
-				})}
-			</div>
+			{filteredProjects.length === 0 ? (
+				<div className="flex justify-center items-center">
+					<p className="text-5xl text-gray-400 font-semibold pt-6 dark:text-slate-700">
+						No projects match the criteria!
+					</p>
+				</div>
+			) : (
+				<div className="flex flex-col gap-4 xl:grid xl:grid-cols-2">
+					{filteredProjects.map((proj: Project) => {
+						return <ProjectCard key={proj.name} project={proj} />;
+					})}
+				</div>
+			)}
 		</div>
 	);
 }
