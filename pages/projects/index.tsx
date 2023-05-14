@@ -11,6 +11,7 @@ import { Technology } from "@/lib/projects";
 import TechnologyFilterButton from "@/components/TechnologyFilterButton";
 import SearchFilter from "@/components/SearchFilter";
 import ProjectCard from "@/components/ProjectCard";
+import { AnimatePresence } from "framer-motion";
 
 export default function ProjectPage() {
 	const [techFiltersSelected, setTechFiltersSelected] = useState<
@@ -57,7 +58,9 @@ export default function ProjectPage() {
 									handleTechnologyFilter={
 										handleTechnologyFilter
 									}
-									isSelected={techFiltersSelected.includes(technology)}
+									isSelected={techFiltersSelected.includes(
+										technology
+									)}
 								/>
 							);
 						})}
@@ -72,9 +75,13 @@ export default function ProjectPage() {
 				</div>
 			) : (
 				<div className="flex flex-col gap-4 xl:grid xl:grid-cols-2">
-					{filteredProjects.map((proj: Project) => {
-						return <ProjectCard key={proj.name} project={proj} />;
-					})}
+					<AnimatePresence>
+						{filteredProjects.map((proj: Project) => {
+							return (
+								<ProjectCard key={proj.name} project={proj} />
+							);
+						})}
+					</AnimatePresence>
 				</div>
 			)}
 		</div>

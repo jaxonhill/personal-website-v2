@@ -8,7 +8,14 @@ export type ProjectCardProps = {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
 	return (
-		<div className="bg-white p-6 flex flex-col rounded-2xl shadow h-full justify-between dark:bg-slate-800">
+		<motion.div
+			layout
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+			transition={{ duration: 0.5 }}
+			className="bg-white p-6 flex flex-col rounded-2xl shadow h-full justify-between dark:bg-slate-800"
+		>
 			<div>
 				<h1 className="font-semibold text-slate-800 text-3xl pb-2 dark:text-slate-200">
 					{project.name}
@@ -138,6 +145,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 					)}
 				</div>
 			)}
-		</div>
+		</motion.div>
 	);
 }
