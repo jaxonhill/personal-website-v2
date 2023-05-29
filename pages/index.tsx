@@ -14,7 +14,7 @@ export default function Home() {
 				transition={{ duration: 1 }}
 				className="flex flex-col mt-16 w-full"
 			>
-				<h1 className="text-3xl text-gray-400 font-semibold mb-6 tracking-[0.20em] dark:text-slate-700">
+				<h1 className="text-4xl text-gray-400 font-semibold mb-6 tracking-[0.20em] dark:text-slate-700">
 					HOME
 				</h1>
 				<div className="w-full grid gap-4 grid-cols-2 grid-rows-4 lg:grid-cols-4 lg:grid-rows-2">

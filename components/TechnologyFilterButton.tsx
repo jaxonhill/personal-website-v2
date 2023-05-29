@@ -20,7 +20,7 @@ export default function TechnologyFilterButton({
 			whileTap={{ scale: 0.85 }}
 			className={`${
 				isSelected
-					? "text-light-main bg-gray-100 hover:bg-white dark:bg-slate-700 dark:hover:bg-slate-800"
+					? "text-light-main bg-white hover:bg-gray-100 dark:bg-slate-700 dark:hover:bg-slate-800"
 					: "bg-white text-slate-400 hover:text-slate-600 hover:bg-gray-100 dark:bg-slate-800 dark:text-slate-600 dark:hover:bg-slate-700 dark:hover:text-slate-500"
 			} shadow rounded-full px-4 py-2 font-medium hover:cursor-pointer`}
 			onClick={() => handleTechnologyFilter(technology)}
